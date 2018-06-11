@@ -1,0 +1,35 @@
+Controller:
+
+    - Create: (only possible by admin)
+        * name?
+        * description?
+        * image? [url]
+        * date 
+        * amount Tickets
+        * cost per Ticket
+        * deposit address
+
+        -> Generate internal id
+        -> Generate new contract instance
+        -> map id to contract address
+
+    - List all (To display on frontend)
+
+    - Search?
+
+
+Each contract:
+    -> Will have a map associating a ticket with its owner.
+    -> On completion will move money to deposit.
+
+    - Buy:
+        -> Get first unowned ticket.
+        -> Otherwise non-available / queue.
+
+    - Sell:
+        -> Queue? Probably won't be implemented.
+
+    - Delete
+        -> To free space in blockchain.
+        -> Only possible by admin/deposit address or autodelete?
+
