@@ -11,8 +11,9 @@ contract Event
     uint24 public m_Tickets;
     uint16 public m_Cost;
     address public m_Owner;
-    mapping ( address => uint24 ) m_TicketMap;
     uint24 public m_TicketsLeft;
+
+    mapping ( address => uint24 ) m_TicketMap;
     Wallet m_Wallet;
 
     constructor(bytes32 name, bytes32 description, bytes32 image, uint date, uint24 tickets, uint16 cost, address walletAddress) public
@@ -23,10 +24,9 @@ contract Event
         m_Date = date;
         m_Tickets = tickets;
         m_Cost = cost;
-
-        m_Owner = msg.sender;
         m_TicketsLeft = m_Tickets;
 
+        m_Owner = msg.sender;
         m_Wallet = Wallet(walletAddress);
     }
 

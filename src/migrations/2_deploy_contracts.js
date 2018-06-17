@@ -6,6 +6,6 @@ const initialAmount = 100000;
 module.exports = function(deployer) {
   deployer.deploy(Wallet, initialAmount).then(function()
   {
-    deployer.deploy(EventFactory, Wallet.address);
+    return deployer.deploy(EventFactory, Wallet.address);
   });
 };
