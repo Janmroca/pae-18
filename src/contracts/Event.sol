@@ -50,7 +50,7 @@ contract Event
     function buyTickets(uint24 amount) notStarted public returns (bool success)
     {
         if (m_TicketsLeft < amount) return false;
-        if (!m_Wallet.transfer(this, amount)) return false;
+        if (!m_Wallet.transferFrom(msg.sender, this, amount*m_Cost)) return false;
 
         m_TicketsLeft -= amount;
         m_TicketMap[msg.sender] += amount;
@@ -61,7 +61,7 @@ contract Event
     function sellTickets(uint24 amount) notStarted public returns (bool success)
     {
         if (m_TicketMap[msg.sender] < amount) return false;
-        if (!m_Wallet.transferFrom(this, msg.sender, amount)) return false;
+        if (!m_Wallet.transferFrom(this, msg.sender, amount*m_Cost)) return false;
 
         m_TicketsLeft += amount;
         m_TicketMap[msg.sender] -= amount;

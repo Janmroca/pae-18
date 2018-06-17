@@ -6,7 +6,7 @@ contract EventFactory
 {
     address[] m_Events;
     address m_Owner;
-    address  m_WalletAddress;
+    address m_WalletAddress;
 
     constructor(address walletAddress) public
     {
