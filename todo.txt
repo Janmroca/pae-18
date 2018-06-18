@@ -1,7 +1,5 @@
 Factory:
 
-    - Add beneficiaries
-
     - List all (To display on frontend)
     - Search?
 
