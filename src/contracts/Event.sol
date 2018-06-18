@@ -13,6 +13,7 @@ contract Event
     uint24 public m_TotalTickets;
     uint16 public m_Cost;
     uint24 public m_TicketsLeft;
+    address public m_Owner;
 
     mapping ( address => tickets ) m_TicketMap;
     Wallet m_Wallet;
@@ -36,6 +37,7 @@ contract Event
         m_TotalTickets = totalTickets;
         m_Cost = cost;
         m_TicketsLeft = m_TotalTickets;
+        m_Owner = msg.sender;
 
         m_Wallet = Wallet(walletAddress);
         m_BenefitiaryAddress = benefitiaryAddress;

@@ -21,3 +21,10 @@ Wallet:
     - Transfer To:
 
 
+Things that could be interesting:
+
+    - Allow buy/sell for unredeemed tickets after event has started, but adjust the ticket cost by % of event completion.
+    - Redeem tickets through QR and smartphone.
+    - Pass an escrow benefitiary account, which will distribute perceived money according to ITS rules.
+    - From started to finished, users can vote up to $amountOfRedeemedTickets times. This input will be used to calculate an acceptance ratio, which will determine how the payments are released.
+    - Trustability on contract owner --> find other events created by him and see how they went.

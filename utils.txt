@@ -2,7 +2,7 @@
 web3.eth.getAccounts(function(err,res) { accounts = res; });
 wallet = Wallet.deployed();
 factory = EventFactory.deployed();
-factory.then(function(instance) { return instance.createEvent("event", "test", "", 1629316006, 300, 300, 150, 10, accounts[0]); })
+factory.then(function(instance) { return instance.createEvent("event", "test", "", 1629316909, 60, 60, 150, 10, accounts[0]); })
 factory.then(function(instance) { events = instance.getEvents(); return events; })
 events.then(function(res) { ev1 = Event.at(res[0]); return ev1; })
 
