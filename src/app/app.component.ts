@@ -1,6 +1,6 @@
 import { Component, HostListener, NgZone } from '@angular/core';
 
-import {Web3Service, MetaCoinService} from '../services/services'
+import {Web3Service, WalletService} from '../services/services'
 
 import { canBeNumber } from '../util/validation';
 
@@ -25,7 +25,7 @@ export class AppComponent {
   constructor(
     private _ngZone: NgZone,
     private web3Service: Web3Service,
-    private metaCoinService: MetaCoinService,
+    private walletService: WalletService,
     ) {
     this.onReady();
   }
@@ -46,7 +46,7 @@ export class AppComponent {
   };
 
   refreshBalance = () => {
-    this.metaCoinService.getBalance(this.account)
+    this.walletService.getBalance(this.account)
       .then(value => {
         this.balance = value
       }, e => {this.setStatus('Error getting balance; see log.')})
@@ -55,4 +55,15 @@ export class AppComponent {
   setStatus = message => {
     this.status = message;
   };
+
+  sendCoin = () => {
+    this.setStatus('Initiating transaction... (please wait)');
+
+    this.walletService.sendCoins(this.account, this.recipientAddress, this.sendingAmount)
+      .then(() => {
+        this.setStatus('Transaction complete!');
+        this.refreshBalance();
+      }, e => this.setStatus('Error sending coin; see log.')
+    );
+  }
 }

@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-import {MetaCoinService, Web3Service} from '../services/services'
+import {WalletService, Web3Service} from '../services/services'
 
 const SERVICES = [
-  MetaCoinService,
+  WalletService,
   Web3Service,
 ]
 
