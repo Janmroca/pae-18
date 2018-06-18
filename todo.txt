@@ -1,35 +1,26 @@
-Controller:
+Factory:
 
-    - Create: (only possible by admin)
-        * name?
-        * description?
-        * image? [url]
-        * date 
-        * amount Tickets
-        * cost per Ticket
-        * deposit address
-
-        -> Generate internal id
-        -> Generate new contract instance
-        -> map id to contract address
+    - Add beneficiaries
 
     - List all (To display on frontend)
-
     - Search?
 
+Event:
 
-Each contract:
-    -> Will have a map associating a ticket with its owner.
-    -> On completion will move money to deposit.
+    - Display if IsStarted?
+    - Display if IsOver?
+    - Display amount of tickets
+    - Display amount of redeemed tickets
 
-    - Buy:
-        -> Get first unowned ticket.
-        -> Otherwise non-available / queue.
+    - Buy tickets
+    - Sell tickets
+    - Redeem ticket
+    - Release payments
 
-    - Sell:
-        -> Queue? Probably won't be implemented.
+Wallet:
 
-    - Delete
-        -> To free space in blockchain.
-        -> Only possible by admin/deposit address or autodelete?
+    - Display my money
+    - Display account money
+    - Transfer To:
+
 

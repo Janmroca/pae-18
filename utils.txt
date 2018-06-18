@@ -1,0 +1,18 @@
+// Create sample event
+wallet = Wallet.deployed();
+factory = EventFactory.deployed();
+factory.then(function(instance) { return instance.createEvent("event", "test", "", 1560843557, 300, 150, 10); })
+factory.then(function(instance) { return instance.createEvent("event", "test", "", 1560843617, 300, 150, 10); })
+factory.then(function(instance) { events = instance.getEvents(); return events; })
+events.then(function(res) { ev1 = Event.at(res[0]); return ev1; })
+
+// Sample event operations
+ev1.buyTickets(1);
+ev1.sellTickets(1);
+ev1.amountOfTickets();
+
+// Check balances
+web3.eth.getAccounts(function(err,res) { accounts = res; });
+wallet.then(function(instance) { return instance.balanceOf(accounts[0]) })
+wallet.then(function(instance) { return instance.balanceOf(ev1.address) })
+

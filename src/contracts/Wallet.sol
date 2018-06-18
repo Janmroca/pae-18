@@ -16,24 +16,22 @@ contract Wallet
         return m_BalanceMap[user];
     }
 
-    function _transfer(address from, address to, uint amount) internal returns(bool)
+    function _transfer(address from, address to, uint amount) internal
     {
-        if (balanceOf(from) < amount) return false;
+        require(balanceOf(from) >= amount);
 
         m_BalanceMap[from] -= amount;
         m_BalanceMap[to] += amount;
-
-        return true;
     }
 
-    function transfer(address to, uint amount) public returns(bool)
+    function transfer(address to, uint amount) public
     {
-        return _transfer(msg.sender, to, amount);
+        _transfer(msg.sender, to, amount);
     }
 
-    function transferFrom(address from, address to, uint amount) public returns(bool)
+    function transferFrom(address from, address to, uint amount) public
     {
-        return _transfer(from, to, amount);
+        _transfer(from, to, amount);
     }
 
 
