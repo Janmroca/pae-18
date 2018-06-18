@@ -12,11 +12,11 @@ contract Event
     uint public m_FinishDate;
     uint24 public m_TotalTickets;
     uint16 public m_Cost;
-    address public m_Owner;
     uint24 public m_TicketsLeft;
 
     mapping ( address => tickets ) m_TicketMap;
     Wallet m_Wallet;
+    address m_BenefitiaryAddress;
 
     struct tickets
     {
@@ -25,7 +25,7 @@ contract Event
     }
 
     constructor(bytes32 name, bytes32 description, bytes32 image, uint startDate, uint16 duration, uint16 entranceDuration,
-                uint24 totalTickets, uint16 cost, address walletAddress) public
+                uint24 totalTickets, uint16 cost, address walletAddress, address benefitiaryAddress) public
     {
         m_Name = name;
         m_Description = description;
@@ -37,14 +37,13 @@ contract Event
         m_Cost = cost;
         m_TicketsLeft = m_TotalTickets;
 
-        m_Owner = msg.sender;
         m_Wallet = Wallet(walletAddress);
+        m_BenefitiaryAddress = benefitiaryAddress;
     }
 
-    modifier onlyOwner()
+    function isBenefitiary() public view returns(bool)
     {
-        require(msg.sender == m_Owner);
-        _;
+        return(msg.sender == m_BenefitiaryAddress);
     }
 
     function isEntranceOpen() public view returns(bool)
@@ -57,7 +56,7 @@ contract Event
         return now >= m_StartDate;
     }
 
-    function hasEnded() public view returns(bool)
+    function hasFinished() public view returns(bool)
     {
         return now >= m_FinishDate;
     }
@@ -97,10 +96,17 @@ contract Event
     function redeemTicket() public
     {
         require(amountOfTickets() >= 1);
-        require(isEntranceOpen());
+        require(isEntranceOpen() || (hasStarted() && !hasFinished()));
 
         --m_TicketMap[msg.sender].amount;
         ++m_TicketMap[msg.sender].amountRedeemed;
+    }
 
+    function releasePayment() public
+    {
+        require(hasFinished());
+        require(isBenefitiary());
+
+        m_Wallet.transferFrom(this, m_BenefitiaryAddress, m_Wallet.balanceOf(this));
     }
 }

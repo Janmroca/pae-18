@@ -33,7 +33,4 @@ contract Wallet
     {
         _transfer(from, to, amount);
     }
-
-
-
 }
