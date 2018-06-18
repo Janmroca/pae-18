@@ -7,10 +7,9 @@ Factory:
 
 Event:
 
-    - Display if IsStarted?
-    - Display if IsOver?
-    - Display amount of tickets
-    - Display amount of redeemed tickets
+    - Display event statuts { Unstarted, EntranceOpen, Started, Finished }
+    - Display amount of tickets and redeemed tickets of Unstarted
+    - Display total amonut of tickets and amout of tickets left.
 
     - Buy tickets
     - Sell tickets
