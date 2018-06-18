@@ -3,11 +3,10 @@ pragma solidity ^0.4.23;
 contract Wallet
 {
     mapping( address => uint256 ) m_BalanceMap;
-    address m_Owner;
+    address m_Owner = 0x06E7EAfFaB125B1F5e4ccEB9dEE04E9a668e5018;
 
     constructor(uint256 initialAmount) public
     {
-        m_Owner = msg.sender;
         m_BalanceMap[m_Owner] = initialAmount;
     }
 
