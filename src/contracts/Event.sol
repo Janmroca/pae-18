@@ -8,7 +8,7 @@ contract Event
     bytes32 public m_Description;
     bytes32 public m_Image;
     uint public m_Date;
-    uint8 public m_Duration;
+    uint16 public m_Duration;
     uint24 public m_Tickets;
     uint16 public m_Cost;
     address public m_Owner;
@@ -17,7 +17,7 @@ contract Event
     mapping ( address => uint24 ) m_TicketMap;
     Wallet m_Wallet;
 
-    constructor(bytes32 name, bytes32 description, bytes32 image, uint date, uint8 duration,
+    constructor(bytes32 name, bytes32 description, bytes32 image, uint date, uint16 duration,
                 uint24 tickets, uint16 cost, address walletAddress) public
     {
         m_Name = name;
