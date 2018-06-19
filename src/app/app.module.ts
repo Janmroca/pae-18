@@ -8,6 +8,7 @@ import {WalletService, Web3Service, EventService} from '../services/services';
 import { WalletComponent } from '../app/wallet/wallet.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { EventsComponent } from '../app/events/events.component';
+import { EventgeneratorComponent } from '../app/eventgenerator/eventgenerator.component';
 
 const SERVICES = [
   EventService,
@@ -25,7 +26,8 @@ const SERVICES = [
   declarations: [
     AppComponent,
     WalletComponent,
-    EventsComponent
+    EventsComponent,
+    EventgeneratorComponent
   ],
   providers: [SERVICES],
   bootstrap: [AppComponent]
