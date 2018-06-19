@@ -53,31 +53,42 @@ export class EventService {
 			this.Event
 				.at(eventAddress)
 				.then(instance => {
-					const res : any = {};
+					const res: any = {};
+					let count: number = 0;
 
-					instance.m_Name().then(val => { res.name = this.web3Ser.web3.toAscii(val).replace(/\u0000/g,'') });
-					instance.m_Description().then(val => { res.description = this.web3Ser.web3.toAscii(val).replace(/\u0000/g,'') });
-					instance.m_Image().then(val => { res.image = this.web3Ser.web3.toAscii(val).replace(/\u0000/g,'') });
-					instance.m_StartDate().then(val => { res.startDate = val.toNumber() });
-					instance.m_EntranceDate().then(val => { res.entranceDate = val.toNumber() });
-					instance.m_FinishDate().then(val => { res.finishDate = val.toNumber() });
-					instance.m_TotalTickets().then(val => { res.totalTickets = val.toNumber() });
-					instance.m_Cost().then(val => { res.costTicket = val.toNumber() });
-					instance.m_TicketsLeft().then(val => { res.ticketsLeft = val.toNumber() });
-					instance.m_Owner().then(val => { res.owner = val });
-					instance.isBenefitiary().then(val => { res.isBenefitiary = val });
-					instance.isEntranceOpen().then(val => { res.isEntranceOpen = val });
-					instance.hasFinished().then(val => { res.hasFinished = val });
-					instance.hasStarted().then(val => { res.hasStarted = val });
-					instance.amountOfTickets().then(val => { res.boughtTickets = val.toNumber() });
-					instance.amountOfRedeemedTickets().then(val => { res.redeemedTickets = val.toNumber() });
+					var checkFinished = () => {
+						count += 1;
+						if (count === 16) resolve(res);
+					}
 
-					resolve(res);
+					instance.m_Name().then(val => { res.name = this.web3Ser.web3.toAscii(val).replace(/\u0000/g,''); checkFinished(); });
+					instance.m_Description().then(val => { res.description = this.web3Ser.web3.toAscii(val).replace(/\u0000/g,''); checkFinished();  });
+					instance.m_Image().then(val => { res.image = this.web3Ser.web3.toAscii(val).replace(/\u0000/g,''); checkFinished();  });
+					instance.m_StartDate().then(val => { res.startDate = val.toNumber(); checkFinished();  });
+					instance.m_EntranceDate().then(val => { res.entranceDate = val.toNumber(); checkFinished();  });
+					instance.m_FinishDate().then(val => { res.finishDate = val.toNumber(); checkFinished();  });
+					instance.m_TotalTickets().then(val => { res.totalTickets = val.toNumber(); checkFinished();  });
+					instance.m_Cost().then(val => { res.costTicket = val.toNumber(); checkFinished();  });
+					instance.m_TicketsLeft().then(val => { res.ticketsLeft = val.toNumber(); checkFinished();  });
+					instance.m_Owner().then(val => { res.owner = val; checkFinished();  });
+					instance.isBenefitiary().then(val => { res.isBenefitiary = val; checkFinished();  });
+					instance.isEntranceOpen().then(val => { res.isEntranceOpen = val; checkFinished();  });
+					instance.hasFinished().then(val => { res.hasFinished = val; checkFinished();  });
+					instance.hasStarted().then(val => { res.hasStarted = val; checkFinished();  });
+					instance.amountOfTickets().then(val => { res.boughtTickets = val.toNumber(); checkFinished();  });
+					instance.amountOfRedeemedTickets().then(val => { res.redeemedTickets = val.toNumber(); checkFinished();  });
+
 				})
 				.catch(e => {
 					console.log(e);
 					reject(e);
 				}));
+	}
+
+	checkFinished(val): boolean {
+		++val;
+		return false;
+
 	}
 
 	buyTickets(eventAddress, amount, account): Promise<any> {
