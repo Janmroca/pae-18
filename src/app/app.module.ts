@@ -5,7 +5,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
 import {WalletService, Web3Service} from '../services/services';
-import { WalletComponent } from '../app/wallet/wallet.component'
+import { WalletComponent } from '../app/wallet/wallet.component';
+import { AppRoutingModule } from './app-routing/app-routing.module'
 
 const SERVICES = [
   WalletService,
@@ -17,6 +18,7 @@ const SERVICES = [
     BrowserModule,
     FormsModule,
     HttpModule,
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
