@@ -1375,49 +1375,25 @@
     "version": "0.4.24+commit.e67f0147.Emscripten.clang"
   },
   "networks": {
-    "1529350832988": {
-      "events": {},
-      "links": {},
-      "address": "0xd06a1935230c5bae8c7ecf75fbf4f17a04564ed8",
-      "transactionHash": "0x875ad7cc232160a7a46c2517ad14f1fa165903f53243a17813d64816a93e7d5b"
-    },
-    "1529355980122": {
-      "events": {},
-      "links": {},
-      "address": "0xd06a1935230c5bae8c7ecf75fbf4f17a04564ed8",
-      "transactionHash": "0x875ad7cc232160a7a46c2517ad14f1fa165903f53243a17813d64816a93e7d5b"
-    },
-    "1529357393162": {
-      "events": {},
-      "links": {},
-      "address": "0xd06a1935230c5bae8c7ecf75fbf4f17a04564ed8",
-      "transactionHash": "0x875ad7cc232160a7a46c2517ad14f1fa165903f53243a17813d64816a93e7d5b"
-    },
-    "1529359851627": {
+    "1529398891043": {
       "events": {},
       "links": {},
       "address": "0xc91d0d02b47b50c03d26a279e5b3f10b2b5fff08",
       "transactionHash": "0x875ad7cc232160a7a46c2517ad14f1fa165903f53243a17813d64816a93e7d5b"
     },
-    "1529360273918": {
-      "events": {},
-      "links": {},
-      "address": "0xc91d0d02b47b50c03d26a279e5b3f10b2b5fff08",
-      "transactionHash": "0x52773f33a75b61b2ab74d641b061c79ad77706e95291dd1d0273e567b3bdc2ac"
-    },
-    "1529360613227": {
+    "1529399943429": {
       "events": {},
       "links": {},
       "address": "0xc91d0d02b47b50c03d26a279e5b3f10b2b5fff08",
       "transactionHash": "0x875ad7cc232160a7a46c2517ad14f1fa165903f53243a17813d64816a93e7d5b"
     },
-    "1529361720651": {
+    "1529400808174": {
       "events": {},
       "links": {},
       "address": "0xc91d0d02b47b50c03d26a279e5b3f10b2b5fff08",
       "transactionHash": "0x875ad7cc232160a7a46c2517ad14f1fa165903f53243a17813d64816a93e7d5b"
     },
-    "1529361824277": {
+    "1529404610628": {
       "events": {},
       "links": {},
       "address": "0xc91d0d02b47b50c03d26a279e5b3f10b2b5fff08",
@@ -1425,5 +1401,5 @@
     }
   },
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-06-18T22:43:53.949Z"
+  "updatedAt": "2018-06-19T10:37:03.282Z"
 }

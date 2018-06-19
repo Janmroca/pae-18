@@ -12,12 +12,10 @@ export class WalletService {
   constructor(
   	private web3Ser: Web3Service,
   	) { 
-  	// Bootstrap the MetaCoin abstraction for Use
   	this.Wallet.setProvider(web3Ser.web3.currentProvider);
   }
 
   getBalance(account): Promise<number> {
-  	let meta;
 
   	return new Promise((resolve, reject) =>
   		this.Wallet
@@ -35,7 +33,6 @@ export class WalletService {
 	}
 
 	sendCoins(from, to, amount): Promise<number> {
-  	let meta;
 
   	return new Promise((resolve, reject) =>
   		this.Wallet
