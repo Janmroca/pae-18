@@ -24,7 +24,8 @@ export class EventService {
 			this.EventFactory
 				.deployed()
   		  .then(instance => {
-					instance.getEvents.call();
+					const res = instance.getEvents.call();
+					resolve(res);
 				})
 				.catch(e => {
   		  	console.log(e);
@@ -78,4 +79,69 @@ export class EventService {
 					reject(e);
 				}));
 	}
+
+	buyTickets(eventAddress, amount, account): Promise<any> {
+
+		return new Promise((resolve, reject) =>
+			this.Event
+				.at(eventAddress)
+				.then(instance => {
+					instance.buyTickets(amount, {from: account })
+						.then( result => resolve() )
+						.catch( e => reject(e) )
+				})
+  		  .catch(e => {
+  		    console.log(e);
+  		    reject(e);
+			}));
+	}
+
+	sellTickets(eventAddress, amount, account): Promise<any> {
+
+		return new Promise((resolve, reject) =>
+			this.Event
+				.at(eventAddress)
+				.then(instance => {
+					instance.sellTickets(amount, {from: account })
+						.then( result => resolve() )
+						.catch( e => reject(e) )
+				})
+  		  .catch(e => {
+  		    console.log(e);
+  		    reject(e);
+			}));
+	}
+
+	redeemTicket(eventAddress, account): Promise<any> {
+
+		return new Promise((resolve, reject) =>
+			this.Event
+				.at(eventAddress)
+				.then(instance => {
+					instance.redeemTicket({from: account })
+						.then( result => resolve() )
+						.catch( e => reject(e) )
+				})
+  		  .catch(e => {
+  		    console.log(e);
+  		    reject(e);
+			}));
+	}
+
+	releasePayment(eventAddress, account): Promise<any> {
+
+		return new Promise((resolve, reject) =>
+			this.Event
+				.at(eventAddress)
+				.then(instance => {
+					instance.releasePayment({from: account })
+						.then( result => resolve() )
+						.catch( e => reject(e) )
+				})
+  		  .catch(e => {
+  		    console.log(e);
+  		    reject(e);
+			}));
+	}
+
 }
