@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-import {WalletService, Web3Service} from '../services/services'
+import {WalletService, Web3Service} from '../services/services';
+import { WalletComponent } from '../app/wallet/wallet.component'
 
 const SERVICES = [
   WalletService,
@@ -15,10 +16,11 @@ const SERVICES = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    WalletComponent
   ],
   providers: [SERVICES],
   bootstrap: [AppComponent]
