@@ -13,7 +13,6 @@ declare var window: any;
 
 export class WalletComponent {
 
-  // TODO add proper types these variables
   account: any;
   accounts: any;
 

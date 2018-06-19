@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-import {WalletService, Web3Service} from '../services/services';
+import {WalletService, Web3Service, EventService} from '../services/services';
 import { WalletComponent } from '../app/wallet/wallet.component';
-import { AppRoutingModule } from './app-routing/app-routing.module'
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { EventsComponent } from '../app/events/events.component';
 
 const SERVICES = [
+  EventService,
   WalletService,
-  Web3Service,
+  Web3Service
 ]
 
 @NgModule({
@@ -22,7 +24,8 @@ const SERVICES = [
   ],
   declarations: [
     AppComponent,
-    WalletComponent
+    WalletComponent,
+    EventsComponent
   ],
   providers: [SERVICES],
   bootstrap: [AppComponent]
