@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { TooltipModule } from "ngx-bootstrap/tooltip";
 
 import {WalletService, Web3Service, EventService} from '../services/services';
 import { WalletComponent } from '../app/wallet/wallet.component';
@@ -22,6 +23,7 @@ const SERVICES = [
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    TooltipModule.forRoot(),
   ],
   declarations: [
     AppComponent,

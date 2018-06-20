@@ -52,4 +52,31 @@ export class EventsComponent
     this.events.push(data);
   };
 
+  buyTicket = (address) =>
+  {
+    this.eventService.buyTickets(address, 1, this.account)
+      .then( retrievedEvents => {
+      }, e => this.setStatus('Error buying ticket; see log.'));
+  };
+
+  sellTicket = (address) =>
+  {
+    this.eventService.sellTickets(address, 1, this.account)
+      .then( retrievedEvents => {
+      }, e => this.setStatus('Error selling ticket; see log.'));
+  };
+
+  redeemTicket = (address) =>
+  {
+    this.eventService.redeemTicket(address, this.account)
+      .then( retrievedEvents => {
+      }, e => this.setStatus('Error redeeming ticket; see log.'));
+  };
+
+  releasePayment = (address) =>
+  {
+    this.eventService.releasePayment(address, this.account)
+      .then( retrievedEvents => {
+      }, e => this.setStatus('Error releasing payment; see log.'));
+  }
 }

@@ -11,9 +11,36 @@
 
 <div class="container">
   <h1 class="title is-4 is-info help">{{status}}</h1>
-  <ul *ngIf="events">
-      <li *ngFor="let event of events">
-      
+  <ul class="list-group" *ngIf="events">
+      <li class="list-group-item" *ngFor="let event of events">
+        <p> Event name: {{event.name}}</p>
+        <p> Description: {{event.description}} </p>
+        <p> Starting date: {{event.startDate}} </p>
+        <p> Entrance opening: {{event.entranceDate}} </p>
+        <p> Finishes: {{event.finishDate}} </p>
+        <p> Total tickets: {{event.totalTickets}} </p>
+        <p> Ticket cost: {{event.costTicket}} </p>
+        <p> Owner: {{event.owner}} </p>
+        <p> I'm benefitiary: {{event.isBenefitiary}} </p>
+        <p *ngIf="event.isEntranceOpen"> State: ENTRANCE OPEN </p>
+        <p *ngIf="event.hasFinished"> State: FINISHED </p>
+        <p *ngIf="!event.hasFinished && event.hasStarted"> State: STARTED </p>
+        <p *ngIf="!event.hasFinished && !event.hasStarted && !event.isEntranceOpen"> State: PENDING </p>
+        <p> Amount of tickets bought: {{event.boughtTickets}} </p>
+        <p> Amount of tickets redeemed: {{event.redeemedTickets}} </p>
+        <button type="button" class="btn btn-primary" (click) = "buyTicket(event.address)">
+            Buy ticket
+        </button>
+        <button type="button" class="btn btn-primary" (click) = "sellTicket(event.address)">
+            Sell ticket
+        </button>
+        <button type="button" class="btn btn-primary" (click) = "redeemTicket(event.address)">
+            Redeem ticket
+        </button>
+        <button *ngIf="event.isBenefitiary" type="button" class="btn btn-primary" (click) = "redeemTicket(event.address)">
+            Release payment
+        </button>
+
       </li>
    </ul>
 </div>

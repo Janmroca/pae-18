@@ -10,3 +10,93 @@
 <br>
 <div class="container">
   <h1 class="title is-4 is-info help">{{status}}</h1>
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">Name</label>
+      <p class="control">
+        <input
+          [(ngModel)]="name"
+          class="input"
+          type="text"
+          name="name"
+          required
+          #sendingAmountModel="ngModel">
+      </p>
+    </div>
+    <div class="field">
+      <label class="label">Description</label>
+      <p class="control">
+        <input
+          [(ngModel)]="description"
+          class="input"
+          type="text"
+          name="description"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+    </div>
+  <div class="field">
+      <label class="label">Event duration</label>
+      <p class="control">
+        <input
+          [(ngModel)]="duration"
+          class="input"
+          type="text"
+          name="duration"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+    </div>
+  <div class="field">
+      <label class="label">Entrance duration</label>
+      <p class="control">
+        <input
+          [(ngModel)]="entranceDuration"
+          class="input"
+          type="text"
+          name="entranceDuration"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+    </div>
+  <div class="field">
+      <label class="label">Amount of tickets</label>
+      <p class="control">
+        <input
+          [(ngModel)]="tickets"
+          class="input"
+          type="text"
+          name="tickets"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+    </div>
+  <div class="field">
+      <label class="label">Ticket cost</label>
+      <p class="control">
+        <input
+          [(ngModel)]="cost"
+          class="input"
+          type="text"
+          name="cost"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+    </div>
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="!coinForm.valid"
+          (click)="createEvent()"
+          class="button is-primary">
+          Send
+        </button>
+      </p>
+    </div>
+  </form>
+
